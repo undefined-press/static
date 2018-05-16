@@ -91,7 +91,7 @@
     resetSearchResults();
 
     _UI.counter.textContent = (typeof query !== 'string' || query.length < 1) ? 'Please type a query' :
-      results.length + (results.length === 1 ? ' result' : ' results') + ' found for "' + query + '"';
+      results.length + (results.length === 1 ? ' result' : ' results') + ' found for \u201C' + query + '\u201D';
 
     if (query.length < 1 || results.length < 1) { return; }
 
