@@ -1,12 +1,6 @@
 ;(function (win, doc, body, loc) {
-
-  /*
-    XHR rss feed if localStorage empty
-    save search index to localStorage with timestamp
-      (if localStorage has index, check timestamp; if time threshold exceeded, replace)
-    intercept form submit, grab query text, check against index, return sorted results
-
-  */
+  'use strict';
+  
   var _UI = {
     'input'  : doc.getElementById('qfield'),
     'results': doc.getElementById('qresults'),
