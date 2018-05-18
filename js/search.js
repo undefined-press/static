@@ -129,11 +129,10 @@
 
   function generateMarkup (results) {
     return results.map(function (result) {
-      return '<div class="cell cell-md-6 cell-lg-4 search-result"><a href="' + result.url +
-             '" title="' + result.title +
-             '"><h6><span>' + result.title +
+      return '<div class="cell cell-md-6 cell-lg-4 search-result"><article><h6><span>' + result.title +
              '</span></h6><p>' + (new Date(result.date).toLocaleDateString().replace(/\//g,'.')) +
-             '</p></a></div>';
+             '</p></article>' + result.content + 
+             '</div>';
     }).reduce(function (acc, nxt) {
       return acc + nxt;
     });
