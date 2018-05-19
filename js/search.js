@@ -1,4 +1,4 @@
-;(function (win, doc, body, loc) {
+;(function (win, doc, root, body, loc) {
   'use strict';
   
   var _UI = {
@@ -39,6 +39,7 @@
   }
 
   function eventWireup() {
+    body.addEventListener('click', handleClick, false);
     win.addEventListener('hashchange', scrollSwitch, false);
     _UI.input.addEventListener('keydown', rebounce(handleSearchAttempt), false);
     _UI.close.addEventListener('click', resetSearchResults, false);
@@ -233,5 +234,19 @@
       body.classList.remove('noscroll');
     }
   }
+  
+  function handleClick(e) {
+    var _evt = (e.target || this);
+    switch (_evt.id) {
+      case 'qopen':
+        root.setAttribute('data-search', 'true');
+        break;
+      case 'qclose':
+        root.setAttribute('data-search', 'false');
+        break;
+      default:
+        root.setAttribute('data-search', 'false');
+    }
+  }
 
-})(window, document, document.getElementsByTagName('body')[0], window.location);
+})(window, document, document.documentElement, document.getElementsByTagName('body')[0], window.location);
