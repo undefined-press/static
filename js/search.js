@@ -236,7 +236,7 @@
   }
   
   function handleClick (e) {
-    var _evt = e.currentTarget;
+    var _evt = (e.target || this);
     if (typeof _evt !== 'object') return;
     switch (_evt.id) {
       case 'qopen':
