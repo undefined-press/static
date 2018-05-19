@@ -235,8 +235,9 @@
     }
   }
   
-  function handleClick(e) {
-    var _evt = (e.target || this);
+  function handleClick (e) {
+    var _evt = e.currentTarget;
+    if (typeof _evt !== 'object') return;
     switch (_evt.id) {
       case 'qopen':
         root.setAttribute('data-search', 'true');
@@ -244,8 +245,6 @@
       case 'qclose':
         root.setAttribute('data-search', 'false');
         break;
-      default:
-        root.setAttribute('data-search', 'false');
     }
   }
 
