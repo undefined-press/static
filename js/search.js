@@ -18,7 +18,6 @@
   var _links, _xhr, _local;
 
   if (!('localStorage' in win && 'map' in [] && 'filter' in [] && 'reduce' in [] && 'DOMParser' in win && 'compile' in RegExp.prototype)) { return; }
-  if (!('origin' in loc)) { loc.origin = loc.protocol + '//' + loc.host; }
 
   scrollSwitch();
 
