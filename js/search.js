@@ -19,8 +19,6 @@
 
   if (!('localStorage' in win && 'map' in [] && 'filter' in [] && 'reduce' in [] && 'DOMParser' in win && 'compile' in RegExp.prototype)) { return; }
 
-  scrollSwitch();
-
   if (_cache > 0 && !!(localStorage.getItem(_idx))) {
     _local = JSON.parse(localStorage.getItem(_idx));
   }
@@ -39,7 +37,6 @@
 
   function eventWireup() {
     body.addEventListener('click', handleClick, false);
-    win.addEventListener('hashchange', scrollSwitch, false);
     _UI.input.addEventListener('keydown', rebounce(handleSearchAttempt), false);
     _UI.close.addEventListener('click', resetSearchResults, false);
   }
@@ -222,15 +219,6 @@
         func.apply(_context, _args);
         _scheduled = null;
       });
-    }
-  }
-
-  function scrollSwitch () {
-    var _hash = loc.hash.charAt(0) !== '#' ? '#' : loc.hash;
-    if (_hash.charAt(1) === 's') {
-      body.classList.add('noscroll');
-    } else {
-      body.classList.remove('noscroll');
     }
   }
   
